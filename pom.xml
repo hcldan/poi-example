@@ -10,6 +10,8 @@
   <name>poi-example</name>
 
   <properties>
+    <!-- <bytecoder.version>2021-11-02</bytecoder.version> -->
+    <bytecoder.version>0-SNAPSHOT</bytecoder.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -64,12 +66,14 @@
       <plugin>
         <groupId>de.mirkosertic.bytecoder</groupId>
         <artifactId>bytecoder-mavenplugin</artifactId>
-        <version>2021-11-02</version>
+        <version>${bytecoder.version}</version>
         <configuration>
           <mainClass>com.example.poi.MainClass</mainClass>
           <backend>wasm</backend>
           <enableExceptionHandling>true</enableExceptionHandling>
           <optimizationLevel>ALL</optimizationLevel>
+          <additionalClassesToLink>
+          </additionalClassesToLink>
         </configuration>
         <executions>
           <execution>
@@ -88,27 +92,32 @@
       <dependency>
         <groupId>de.mirkosertic.bytecoder</groupId>
         <artifactId>bytecoder.api</artifactId>
-        <version>2021-11-02</version>
+        <version>${bytecoder.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <version>5.2.2</version>
+        <version>5.2.3-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-scratchpad</artifactId>
-        <version>5.2.2</version>
+        <version>5.2.3-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
-        <version>5.2.2</version>
+        <version>5.2.3-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.apache.xmlbeans</groupId>
         <artifactId>xmlbeans</artifactId>
         <version>5.0.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>4.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -133,6 +142,10 @@
     <dependency>
       <groupId>org.apache.xmlbeans</groupId>
       <artifactId>xmlbeans</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
     </dependency>
   </dependencies>
 </project>
