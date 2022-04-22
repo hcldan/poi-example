@@ -69,11 +69,12 @@
         <version>${bytecoder.version}</version>
         <configuration>
           <mainClass>com.example.poi.MainClass</mainClass>
-          <backend>wasm</backend>
+          <backend>js</backend>
           <enableExceptionHandling>true</enableExceptionHandling>
-          <optimizationLevel>ALL</optimizationLevel>
-          <additionalClassesToLink>
-          </additionalClassesToLink>
+          <preferStackifier>true</preferStackifier>
+          <!-- <optimizationLevel>ALL</optimizationLevel> -->
+          <optimizationLevel>NONE</optimizationLevel>
+          <debugOutput>true</debugOutput>
         </configuration>
         <executions>
           <execution>
@@ -89,6 +90,21 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>de.mirkosertic.bytecoder</groupId>
+        <artifactId>java.base</artifactId>
+        <version>${bytecoder.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.mirkosertic.bytecoder</groupId>
+        <artifactId>java.logging</artifactId>
+        <version>${bytecoder.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.mirkosertic.bytecoder</groupId>
+        <artifactId>java.xml</artifactId>
+        <version>${bytecoder.version}</version>
+      </dependency>
       <dependency>
         <groupId>de.mirkosertic.bytecoder</groupId>
         <artifactId>bytecoder.api</artifactId>
@@ -123,6 +139,18 @@
   </dependencyManagement>
 
   <dependencies>
+    <dependency>
+      <groupId>de.mirkosertic.bytecoder</groupId>
+      <artifactId>java.base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.mirkosertic.bytecoder</groupId>
+      <artifactId>java.logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.mirkosertic.bytecoder</groupId>
+      <artifactId>java.xml</artifactId>
+    </dependency>
     <dependency>
       <groupId>de.mirkosertic.bytecoder</groupId>
       <artifactId>bytecoder.api</artifactId>
